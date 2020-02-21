@@ -7,6 +7,9 @@
 
 // -- Components ---------------------------------------------------------------
     import {getData} from './static/Functions'
+    import Header from './components/Header';
+    import Content from './components/Content';
+    import Footer from './components/Footer';
 // -----------------------------------------------------------------------------
 
 
@@ -22,14 +25,11 @@ class App extends React.Component{
         getData(this);
     }
     render(){
-        if( this.state.dataLoaded ){
-            console.log("dataLoaded");
-            console.log(this.state.data);
-        }
         return(
             <div className="overall-content">
-                <h1>APP 3</h1>
-                <p>dataLoaded : {String(this.state.dataLoaded)}</p>
+                <Header />
+                <Content state={this.state} />
+                <Footer />
             </div>
         )
     }
