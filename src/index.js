@@ -2,32 +2,34 @@
     import React from 'react';
     import ReactDOM from 'react-dom';
     import styles from './style/style';
-    let data = require('./data/data.json');
     const appRoot = document.getElementById('app');
 // -----------------------------------------------------------------------------
 
 // -- Components ---------------------------------------------------------------
-    import Header from './components/Header';
-    import Content from './components/Content';
-    import Footer from './components/Footer';
+    import {getData} from './static/Functions'
 // -----------------------------------------------------------------------------
 
 
 class App extends React.Component{
     constructor(props){
         super(props);
-        this.state  = { currentPage : 'home' };
-        this.menuHandler = this.menuHandler.bind(this);
+        this.state = {
+            data: '',
+            dataLoaded: false
+        };
     }
-    menuHandler(target){
-        this.setState({ currentPage : target });
+    componentDidMount(){
+        getData(this);
     }
     render(){
+        if( this.state.dataLoaded ){
+            console.log("dataLoaded");
+            console.log(this.state.data);
+        }
         return(
             <div className="overall-content">
-                <Header data={data} menuHandler={this.menuHandler} />
-                <Content currentPage={this.state.currentPage} />
-                <Footer data={data} menuHandler={this.menuHandler} />
+                <h1>APP 3</h1>
+                <p>dataLoaded : {String(this.state.dataLoaded)}</p>
             </div>
         )
     }
