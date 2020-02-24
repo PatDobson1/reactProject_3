@@ -4,7 +4,7 @@
 // -----------------------------------------------------------------------------
 
 // -- Components ---------------------------------------------------------------
-
+    import Menu from './Menu';
 // -----------------------------------------------------------------------------
 
 class Footer extends React.Component{
@@ -17,6 +17,7 @@ class Footer extends React.Component{
             <div className="footer">
                 <div className="footerContent">
                     <p>All content &copy;{date} The Shop</p>
+                    <Menu />
                 </div>
             </div>
         )

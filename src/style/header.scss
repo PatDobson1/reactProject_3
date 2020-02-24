@@ -17,11 +17,14 @@
         color: #ffffff;
         font-size: 1.3em;
         font-weight: 700;
-        margin: 0 0 0 20px;
+        margin: 0 0 0 30px;
         cursor: pointer;
+        padding: 0 5px;
+        border-radius: 6px;
         transition: all 0.1s ease-in;
         &:hover{
-            color: #932222;
+            background-color: $page_background;
+            color: $main_background;
         }
     }
 }
