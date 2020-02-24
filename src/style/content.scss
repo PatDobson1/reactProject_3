@@ -1,0 +1,10 @@
+
+.content{
+    background-color: $page_background;
+    .contentInner{
+        background-color: $white;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 60px 30px;
+    }
+}

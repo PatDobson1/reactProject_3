@@ -1,6 +1,5 @@
 // -- Setup --------------------------------------------------------------------
     import React from 'react';
-    import ReactDOM from 'react-dom';
 // -----------------------------------------------------------------------------
 
 // -- Components ---------------------------------------------------------------
@@ -12,10 +11,23 @@ class Content extends React.Component{
         super(props);
     }
     render(){
+        const featuredItems = this.props.state.featuredData;
+        const featuredDisplay = [];
+        Object.keys(featuredItems).forEach(key=>{
+            featuredDisplay.push(
+                <div className="featuredItem" key={key}>
+                    <h1>{featuredItems[key].name}</h1>
+                    {/* <img src={featuredItems[key].image} alt={featuredItems[key].name} /> */}
+                    <p>{featuredItems[key].description}</p>
+                    <p>&pound;{featuredItems[key].price}</p>
+                </div>
+            )
+        })
         return(
-            <div>
-                <p>featuredDataLoaded : {String(this.props.state.featuredDataLoaded)}</p>
-                <p>fullDataLoaded : {String(this.props.state.fullDataLoaded)}</p>
+            <div className="content">
+                <div className="contentInner">
+                    {featuredDisplay}
+                </div>
             </div>
         )
     }

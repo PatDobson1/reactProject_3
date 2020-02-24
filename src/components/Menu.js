@@ -1,27 +1,25 @@
 // -- Setup --------------------------------------------------------------------
     import React from 'react';
-    import ReactDOM from 'react-dom';
 // -----------------------------------------------------------------------------
 
 // -- Components ---------------------------------------------------------------
-    import Logo from './Logo';
-    import Menu from './Menu';
+    import MenuItem from './MenuItem';
 // -----------------------------------------------------------------------------
 
-class Header extends React.Component{
+class Menu extends React.Component{
     constructor(props){
         super(props);
     }
     render(){
         return(
-            <div className="header">
-                <div className="headerContent">
-                    <Logo />
-                    <Menu />
-                </div>
+            <div className="menu">
+                <MenuItem target="home" title="Home" />
+                <MenuItem target="shop" title="Shop" />
+                <MenuItem target="about" title="About" />
+                <MenuItem target="contact" title="Contact" />
             </div>
         )
     }
 }
 
-export default Header;
+export default Menu;

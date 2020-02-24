@@ -12,9 +12,12 @@ class Footer extends React.Component{
         super(props);
     }
     render(){
+        let date = new Date().getFullYear();
         return(
-            <div>
-                [footer]
+            <div className="footer">
+                <div className="footerContent">
+                    <p>All content &copy;{date} The Shop</p>
+                </div>
             </div>
         )
     }
