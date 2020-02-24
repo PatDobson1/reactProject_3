@@ -1,6 +1,7 @@
 // -- Setup --------------------------------------------------------------------
     import React from 'react';
     import ReactDOM from 'react-dom';
+    import {BrowserRouter, Switch, Route, Link, Redirect} from 'react-router-dom';
     import styles from './style/style';
     const appRoot = document.getElementById('app');
 // -----------------------------------------------------------------------------
@@ -30,7 +31,13 @@ class App extends React.Component{
         return(
             <div className="overall-content">
                 <Header />
-                <Content state={this.state} />
+                <Switch>
+                    <Route exact path="/" render={()=><Content context="content" state={this.state} />} />
+                    <Route path="/about" render={()=><Content context="about" />} />
+                    <Route path="/contact" render={()=><Content context="contact" />} />
+                    <Route path="/terms" render={()=><Content context="terms" />} />
+                    <Redirect to="/" />
+                </Switch>
                 <Footer />
             </div>
         )
@@ -38,5 +45,5 @@ class App extends React.Component{
 }
 
 // -- Render -------------------------------------------------------------------
-    ReactDOM.render(<App />, appRoot )
+    ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, appRoot )
 // -----------------------------------------------------------------------------
