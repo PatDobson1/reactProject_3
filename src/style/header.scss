@@ -21,6 +21,7 @@
         cursor: pointer;
         padding: 0 5px;
         border-radius: 6px;
+        text-decoration: none;
         transition: all 0.1s ease-in;
         &:hover{
             background-color: $page_background;

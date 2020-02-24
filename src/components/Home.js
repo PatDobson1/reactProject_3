@@ -1,5 +1,6 @@
 // -- Setup --------------------------------------------------------------------
     import React from 'react';
+    import {Link} from 'react-router-dom';
 // -----------------------------------------------------------------------------
 
 // -- Components ---------------------------------------------------------------
@@ -16,17 +17,26 @@ class Content extends React.Component{
         Object.keys(featuredItems).forEach(key=>{
             featuredDisplay.push(
                 <div className="featuredItem" key={key}>
-                    <h1>{featuredItems[key].name}</h1>
-                    {/* <img src={featuredItems[key].image} alt={featuredItems[key].name} /> */}
-                    <p>{featuredItems[key].description}</p>
-                    <p>&pound;{featuredItems[key].price}</p>
+                    <Link to="shop">
+                        <h2>{featuredItems[key].name}</h2>
+                        <img src={featuredItems[key].image} alt={featuredItems[key].name} />
+                        <p className="description">
+                            {featuredItems[key].description}
+                            <span className="fade"></span>
+                        </p>
+                        <p className="price">&pound;{featuredItems[key].price}</p>
+                        <span>See more</span>
+                    </Link>
                 </div>
             )
         })
         return(
             <div className="content">
                 <div className="contentInner">
-                    {featuredDisplay}
+                    <h1>Welcome to our shop</h1>
+                    <div className="featuredItems">
+                        {featuredDisplay}
+                    </div>
                 </div>
             </div>
         )
