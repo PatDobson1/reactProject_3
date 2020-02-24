@@ -9,7 +9,10 @@
 // -- Components ---------------------------------------------------------------
     import { getFeaturedData, getFullData } from './js/Functions'
     import Header from './components/Header';
-    import Content from './components/Content';
+    import Home from './components/Home';
+    import Shop from './components/Shop';
+    import Contact from './components/Contact';
+    import About from './components/About';
     import Footer from './components/Footer';
 // -----------------------------------------------------------------------------
 
@@ -32,10 +35,10 @@ class App extends React.Component{
             <div className="overall-content">
                 <Header />
                 <Switch>
-                    <Route exact path="/" render={()=><Content context="content" state={this.state} />} />
-                    <Route path="/about" render={()=><Content context="about" />} />
-                    <Route path="/contact" render={()=><Content context="contact" />} />
-                    <Route path="/terms" render={()=><Content context="terms" />} />
+                    <Route exact path="/" render={()=><Home state={this.state} />} />
+                    <Route path="/shop" render={()=><Shop />} />
+                    <Route path="/about" render={()=><About />} />
+                    <Route path="/contact" render={()=><Contact />} />
                     <Redirect to="/" />
                 </Switch>
                 <Footer />
