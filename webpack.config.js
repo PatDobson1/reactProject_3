@@ -41,7 +41,10 @@ module.exports = {
       }),
       new CopyWebpackPlugin([
           { from: './src/static'}
-      ])
+      ]),
+      new webpack.ProvidePlugin({
+          Promise: 'es6-promise'
+      })
   ],
   devServer: {
     contentBase: './dist',

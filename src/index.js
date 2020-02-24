@@ -6,7 +6,7 @@
 // -----------------------------------------------------------------------------
 
 // -- Components ---------------------------------------------------------------
-    import {getData} from './static/Functions'
+    import { getFeaturedData, getFullData } from './js/Functions'
     import Header from './components/Header';
     import Content from './components/Content';
     import Footer from './components/Footer';
@@ -17,12 +17,14 @@ class App extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            data: '',
-            dataLoaded: false
+            featuredData: '',
+            fullData: '',
+            featuredDataLoaded: false,
+            fullDataLoaded: false
         };
     }
     componentDidMount(){
-        getData(this);
+        getFeaturedData(this);
     }
     render(){
         return(

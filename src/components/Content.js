@@ -14,8 +14,8 @@ class Content extends React.Component{
     render(){
         return(
             <div>
-                [content]
-                <p>dataLoaded : {String(this.props.state.dataLoaded)}</p>
+                <p>featuredDataLoaded : {String(this.props.state.featuredDataLoaded)}</p>
+                <p>fullDataLoaded : {String(this.props.state.fullDataLoaded)}</p>
             </div>
         )
     }
