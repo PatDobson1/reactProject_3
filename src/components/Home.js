@@ -17,7 +17,7 @@ class Content extends React.Component{
         Object.keys(featuredItems).forEach(key=>{
             featuredDisplay.push(
                 <div className="featuredItem" key={key}>
-                    <Link to="shop">
+                    <Link to={'/product/' + featuredItems[key].id}>
                         <h2>{featuredItems[key].name}</h2>
                         <img src={featuredItems[key].image} alt={featuredItems[key].name} />
                         <p className="description">

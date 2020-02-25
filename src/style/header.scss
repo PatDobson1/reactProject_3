@@ -11,7 +11,7 @@
 
 .menu{
     position: absolute;
-    top: 40px;
+    top: 70px;
     right: 20px;
     a{
         color: #ffffff;
@@ -38,4 +38,11 @@
     background-size: 150px;
     background-repeat: no-repeat;
     background-position: 50%;
+}
+
+.basket{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: $white;
 }

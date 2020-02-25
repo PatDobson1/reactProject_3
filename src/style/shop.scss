@@ -52,3 +52,27 @@
         }
     }
 }
+
+.product{
+    min-height: 500px;
+    .info{
+        float: left;
+    }
+    .description{
+        margin: 0 0 0 270px;
+    }
+    .price{
+        margin: 20px 0 0 0;
+    }
+    a{
+        display: inline-block;
+        margin: 20px 0 0 0;
+        padding: 10px;
+        border: 1px solid $main_background;
+        cursor: pointer;
+        transition: all 0.1s ease-in;
+        &:hover{
+            background-color: $page_background;
+        }
+    }
+}

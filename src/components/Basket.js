@@ -1,20 +1,22 @@
 // -- Setup --------------------------------------------------------------------
     import React from 'react';
-    import {Link} from 'react-router-dom';
 // -----------------------------------------------------------------------------
 
 // -- Components ---------------------------------------------------------------
 // -----------------------------------------------------------------------------
 
-class MenuItem extends React.Component{
-    constructor(props){
-        super(props);
-    }
+class Basket extends React.Component{
     render(){
+        const basket = this.props.basket;
+        let ex = basket.totalQuantity == 1 ? '' : 's';
         return(
-            <Link to={'/' + this.props.target}>{this.props.title}</Link>
+            <div className="basket">
+                <p>Shopping basket</p>
+                <p>{basket.totalQuantity} item{ex}</p>
+                <p>&pound;{basket.totalPrice.toFixed(2)}</p>
+            </div>
         )
     }
 }
 
-export default MenuItem;
+export default Basket;

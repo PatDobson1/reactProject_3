@@ -7,10 +7,11 @@
 // -----------------------------------------------------------------------------
 
 // -- Components ---------------------------------------------------------------
-    import { getFeaturedData, getFullData } from './js/Functions'
+    import { getFeaturedData, getFullData, basket } from './js/Functions'
     import Header from './components/Header';
     import Home from './components/Home';
     import Shop from './components/Shop';
+    import Product from './components/Product';
     import Contact from './components/Contact';
     import About from './components/About';
     import Footer from './components/Footer';
@@ -24,8 +25,18 @@ class App extends React.Component{
             featuredData: '',
             fullData: '',
             featuredDataLoaded: false,
-            fullDataLoaded: false
+            fullDataLoaded: false,
+            basket: {
+                basketItems: [],
+                basketQuantity: [],
+                totalQuantity: 0,
+                totalPrice: 0
+            }
         };
+        this.addToBasket = this.addToBasket.bind(this);
+    }
+    addToBasket(id){
+        basket(this, id);
     }
     componentDidMount(){
         getFeaturedData(this);
@@ -33,12 +44,13 @@ class App extends React.Component{
     render(){
         return(
             <div className="overall-content">
-                <Header />
+                <Header basket={this.state.basket} />
                 <Switch>
                     <Route exact path="/" render={()=><Home state={this.state} />} />
                     <Route path="/shop" render={()=><Shop />} />
-                    <Route path="/about" render={()=><About />} />
-                    <Route path="/contact" render={()=><Contact />} />
+                    <Route path="/product/:id" render={(props) => <Product {...props} addToBasket={this.addToBasket} /> } />
+                    <Route path="/about" component={About} />
+                    <Route path="/contact" component={Contact} />
                     <Redirect to="/" />
                 </Switch>
                 <Footer />

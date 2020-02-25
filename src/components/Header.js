@@ -6,6 +6,7 @@
 // -- Components ---------------------------------------------------------------
     import Logo from './Logo';
     import Menu from './Menu';
+    import Basket from './Basket';
 // -----------------------------------------------------------------------------
 
 class Header extends React.Component{
@@ -18,6 +19,7 @@ class Header extends React.Component{
                 <div className="headerContent">
                     <Logo />
                     <Menu />
+                    <Basket basket={this.props.basket} />
                 </div>
             </div>
         )
