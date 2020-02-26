@@ -1,8 +1,6 @@
 // -- Setup --------------------------------------------------------------------
     import React from 'react';
-// -----------------------------------------------------------------------------
-
-// -- Components ---------------------------------------------------------------
+    import {Link} from 'react-router-dom';
 // -----------------------------------------------------------------------------
 
 class Basket extends React.Component{
@@ -10,11 +8,9 @@ class Basket extends React.Component{
         const basket = this.props.basket;
         let ex = basket.totalQuantity == 1 ? '' : 's';
         return(
-            <div className="basket">
-                <p>Shopping basket</p>
-                <p>{basket.totalQuantity} item{ex}</p>
-                <p>&pound;{basket.totalPrice.toFixed(2)}</p>
-            </div>
+            <Link className="basket" to="/basket">
+                <p>{basket.totalQuantity} item{ex}, &pound;{basket.totalPrice.toFixed(2)}</p>
+            </Link>
         )
     }
 }

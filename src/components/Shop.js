@@ -11,7 +11,11 @@ class Shop extends React.Component{
     }
     render(){
         return(
-            <h2>Shop</h2>
+            <div className="content">
+                <div className="contentInner">
+                    <h2>Shop</h2>
+                </div>
+            </div>
         )
     }
 }

@@ -11,7 +11,11 @@ class About extends React.Component{
     }
     render(){
         return(
-            <h2>About</h2>
+            <div className="content">
+                <div className="contentInner">
+                    <h2>About</h2>
+                </div>
+            </div>
         )
     }
 }

@@ -11,7 +11,11 @@ class Contact extends React.Component{
     }
     render(){
         return(
-            <h2>Contact</h2>
+            <div className="content">
+                <div className="contentInner">
+                    <h2>Contact</h2>
+                </div>
+            </div>
         )
     }
 }
