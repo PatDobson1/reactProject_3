@@ -122,4 +122,28 @@
 
 .pagination{
     margin: 10px 15px;
+    div{
+        display: none;
+    }
+    &.top .top{
+        display: block;
+    }
+    &.bottom .bottom{
+        display: block;
+        a{
+            margin: 0 5px;
+            cursor: pointer;
+            vertical-align: middle;
+            display: inline-block;
+            &.currentPage{
+                font-weight: 700;
+            }
+            &.arrow{
+                font-size: 1.4em;
+            }
+        }
+        .pages span{
+            margin: 0 20px 0 0;
+        }
+    }
 }

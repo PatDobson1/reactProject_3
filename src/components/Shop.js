@@ -12,18 +12,35 @@ class Shop extends React.Component{
         super(props);
         this.state = {
             pagination: {
-                itemsDisplayed: 20,
-                start: 0
+                itemsDisplayed: 10,
+                start: 1,
+                currentPage: 1
             }
         }
+        this.paginationChange = this.paginationChange.bind(this);
+    }
+    paginationChange(target){
+        console.log(this.state.pagination.itemsDisplayed);
+        console.log("paginationChange - shop :: " + target);
+        let itemsDisplayed = this.state.pagination.itemsDisplayed;
+        let start = this.state.pagination.start;
+        this.setState({
+            pagination: {
+                itemsDisplayed: itemsDisplayed,
+                start: (target*itemsDisplayed)-itemsDisplayed,
+                currentPage: parseInt(target)
+            }
+        })
     }
     render(){
         const allItems = this.props.state.fullData;
         const shopDisplay = [];
+        const start = this.state.pagination.start;
+        const end = this.state.pagination.start + this.state.pagination.itemsDisplayed;
         let totalItems = 0;
         Object.keys(allItems).forEach( (key, i) => {
             totalItems++;
-            if( i >= this.state.pagination.start && i < this.state.pagination.itemsDisplayed ){
+            if( i >= start && i < end ){
                 shopDisplay.push(
                     <ShopItem
                         key={key}
@@ -43,7 +60,7 @@ class Shop extends React.Component{
                     <div className="shopItems">
                         {shopDisplay}
                     </div>
-                    <Pagination pagination={this.state.pagination} totalItems={totalItems} position="bottom" />
+                    <Pagination pagination={this.state.pagination} totalItems={totalItems} position="bottom" paginationChange={this.paginationChange} />
                 </div>
             </div>
         )
