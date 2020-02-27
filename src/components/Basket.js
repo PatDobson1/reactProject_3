@@ -8,7 +8,7 @@ class Basket extends React.Component{
         const basket = this.props.basket;
         let ex = basket.totalQuantity == 1 ? '' : 's';
         return(
-            <Link className="basket" to="/basket">
+            <Link className="basket" to="/viewbasket">
                 <p>{basket.totalQuantity} item{ex}, &pound;{basket.totalPrice.toFixed(2)}</p>
             </Link>
         )

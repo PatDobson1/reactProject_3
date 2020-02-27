@@ -53,6 +53,49 @@
     }
 }
 
+.shopItems{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .shopItem{
+        flex-basis: 200px;
+        padding: 10px;
+        margin: 10px;
+        background-color: $page_background;
+        h2{
+            height: 90px;
+        }
+        img{
+            width: 90%;
+            margin: 0 0 20px 5%;
+        }
+        a{
+            text-decoration: none;
+            color: $text_colour;
+        }
+        .description{
+            position: relative;
+            margin: 0 0 20px 0;
+            height: 200px;
+            overflow: hidden;
+        }
+        .price{
+            margin: 0 0 20px 0;
+            font-size: 1.2em;
+        }
+        .fade{
+            background: linear-gradient(to bottom, transparent 2%,#ffe0e0 100%);
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 40px;
+            width: 100%;
+        }
+    }
+}
+
 .product{
     min-height: 500px;
     .info{
@@ -75,4 +118,8 @@
             background-color: $page_background;
         }
     }
+}
+
+.pagination{
+    margin: 10px 15px;
 }

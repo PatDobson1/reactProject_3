@@ -12,6 +12,7 @@
     import Home from './components/Home';
     import Shop from './components/Shop';
     import Product from './components/Product';
+    import ViewBasket from './components/ViewBasket';
     import Contact from './components/Contact';
     import About from './components/About';
     import Footer from './components/Footer';
@@ -47,8 +48,9 @@ class App extends React.Component{
                 <Header basket={this.state.basket} />
                 <Switch>
                     <Route exact path="/" render={()=><Home state={this.state} />} />
-                    <Route path="/shop" render={()=><Shop />} />
+                    <Route path="/shop" render={(props) => <Shop {...props} state={this.state} />} />
                     <Route path="/product/:id" render={(props) => <Product {...props} addToBasket={this.addToBasket} /> } />
+                    <Route path="/viewbasket" render={(props) => <ViewBasket {...props} state={this.state} /> } />
                     <Route path="/about" component={About} />
                     <Route path="/contact" component={Contact} />
                     <Redirect to="/" />

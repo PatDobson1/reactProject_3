@@ -1,10 +1,9 @@
 // -- Setup --------------------------------------------------------------------
     import React from 'react';
-    import {Link} from 'react-router-dom';
 // -----------------------------------------------------------------------------
 
 // -- Components ---------------------------------------------------------------
-
+    import FeaturedItem from './FeaturedItem';
 // -----------------------------------------------------------------------------
 
 class Content extends React.Component{
@@ -16,18 +15,13 @@ class Content extends React.Component{
         const featuredDisplay = [];
         Object.keys(featuredItems).forEach(key=>{
             featuredDisplay.push(
-                <div className="featuredItem" key={key}>
-                    <Link to={'/product/' + featuredItems[key].id}>
-                        <h2>{featuredItems[key].name}</h2>
-                        <img src={featuredItems[key].image} alt={featuredItems[key].name} />
-                        <p className="description">
-                            {featuredItems[key].description}
-                            <span className="fade"></span>
-                        </p>
-                        <p className="price">&pound;{featuredItems[key].price}</p>
-                        <span>See more</span>
-                    </Link>
-                </div>
+                <FeaturedItem
+                    key={key}
+                    linkTo={'/product/' + featuredItems[key].id}
+                    name={featuredItems[key].name}
+                    image={featuredItems[key].image}
+                    description={featuredItems[key].description}
+                    price={featuredItems[key].price} />
             )
         })
         return(
