@@ -19,16 +19,23 @@ class Shop extends React.Component{
         }
         this.paginationChange = this.paginationChange.bind(this);
     }
-    paginationChange(target){
-        console.log(this.state.pagination.itemsDisplayed);
-        console.log("paginationChange - shop :: " + target);
+    paginationChange(target, type){
         let itemsDisplayed = this.state.pagination.itemsDisplayed;
         let start = this.state.pagination.start;
+        let currentPage = this.state.pagination.currentPage;
+        if( type === 'itemsPerPage' ){
+            itemsDisplayed = parseInt(target);
+            start = 1;
+            currentPage = 1;
+        }else if( type === 'page' ){
+            start = (target*itemsDisplayed)-itemsDisplayed;
+            currentPage = parseInt(target);
+        }
         this.setState({
             pagination: {
                 itemsDisplayed: itemsDisplayed,
-                start: (target*itemsDisplayed)-itemsDisplayed,
-                currentPage: parseInt(target)
+                start: start,
+                currentPage: currentPage
             }
         })
     }
