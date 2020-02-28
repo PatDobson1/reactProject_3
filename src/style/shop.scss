@@ -63,6 +63,11 @@
         padding: 10px;
         margin: 10px;
         background-color: $page_background;
+        transition: all 0.1s ease-in;
+        &:hover{
+            box-shadow: 0 2px 10px  $main_background;
+            border-radius: 5px;
+        }
         h2{
             height: 90px;
         }
@@ -73,6 +78,19 @@
         a{
             text-decoration: none;
             color: $text_colour;
+        }
+        a.add{
+            display: block;
+            padding: 5px 10px;
+            margin: 20px 0 10px 0;
+            border: 1px solid $main_background;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.1s ease-in;
+            &:hover{
+                background-color: $main_background;
+                color: $page_background;
+            }
         }
         .description{
             position: relative;

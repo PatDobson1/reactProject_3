@@ -4,6 +4,7 @@
 
 // -- Components ---------------------------------------------------------------
     import ShopItem from './ShopItem';
+    import Filters from './Filters';
     import Pagination from './Pagination';
 // -----------------------------------------------------------------------------
 
@@ -15,9 +16,24 @@ class Shop extends React.Component{
                 itemsDisplayed: 10,
                 start: 1,
                 currentPage: 1
-            }
+            },
+            filters: []
         }
         this.paginationChange = this.paginationChange.bind(this);
+        this.addToBasket = this.addToBasket.bind(this);
+        this.selectFilter = this.selectFilter.bind(this);
+    }
+    selectFilter(category){
+        let selectedFilters = this.state.filters;
+        if( selectedFilters.indexOf(category) === -1 ){
+            selectedFilters.push(category);
+        }
+        this.setState({
+            filters: selectedFilters
+        })
+    }
+    addToBasket(id){
+        this.props.addToBasket(id);
     }
     paginationChange(target, type){
         let itemsDisplayed = this.state.pagination.itemsDisplayed;
@@ -51,18 +67,20 @@ class Shop extends React.Component{
                 shopDisplay.push(
                     <ShopItem
                         key={key}
+                        id={allItems[key].id}
                         linkTo={'/product/' + allItems[key].id}
                         name={allItems[key].name}
                         image={allItems[key].image}
                         description={allItems[key].description}
-                        price={allItems[key].price} />
+                        price={allItems[key].price}
+                        addToBasket={this.addToBasket} />
                 )
             }
         })
         return(
             <div className="content">
                 <div className="contentInner">
-                    <h2>Shop</h2>
+                    <Filters data={this.props.state.fullData} selectFilter={this.selectFilter} />
                     <Pagination pagination={this.state.pagination} totalItems={totalItems} position="top" />
                     <div className="shopItems">
                         {shopDisplay}

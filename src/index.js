@@ -48,7 +48,7 @@ class App extends React.Component{
                 <Header basket={this.state.basket} />
                 <Switch>
                     <Route exact path="/" render={()=><Home state={this.state} />} />
-                    <Route path="/shop" render={(props) => <Shop {...props} state={this.state} />} />
+                    <Route path="/shop" render={(props) => <Shop {...props} state={this.state} addToBasket={this.addToBasket} />} />
                     <Route path="/product/:id" render={(props) => <Product {...props} addToBasket={this.addToBasket} /> } />
                     <Route path="/viewbasket" render={(props) => <ViewBasket {...props} state={this.state} /> } />
                     <Route path="/about" component={About} />

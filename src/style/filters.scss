@@ -1,0 +1,20 @@
+
+.filters{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    a{
+        flex-basis: 150px;
+        text-align: left;
+        border: 1px solid $main_background;
+        padding: 3px 5px 3px 10px;
+        margin: 0 10px 10px 10px;
+        cursor: pointer;
+        transition: all 0.1s ease-in;
+        &:hover{
+            background-color: $main_background;
+            color: $page_background;
+        }
+    }
+}

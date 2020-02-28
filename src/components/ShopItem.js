@@ -6,6 +6,10 @@
 class ShopItem extends React.Component{
     constructor(props){
         super(props);
+        this.addToBasket = this.addToBasket.bind(this);
+    }
+    addToBasket(e){
+        this.props.addToBasket(e.target.id);
     }
     render(){
         return(
@@ -20,6 +24,7 @@ class ShopItem extends React.Component{
                     <p className="price">&pound;{this.props.price}</p>
                     <span>See more</span>
                 </Link>
+                <a id={this.props.id} onClick={this.addToBasket} className="add">Add to basket</a>
             </div>
         )
     }
