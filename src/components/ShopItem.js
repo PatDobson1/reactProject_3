@@ -16,6 +16,7 @@ class ShopItem extends React.Component{
             <div className="shopItem" key={this.props.index}>
                 <Link to={this.props.linkTo}>
                     <h2>{this.props.name}</h2>
+                    <h3>{this.props.category}</h3>
                     <img src={this.props.image} alt={this.props.name} />
                     <p className="description">
                         {this.props.description}

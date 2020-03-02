@@ -9,6 +9,11 @@ class Filters extends React.Component{
     constructor(props){
         super(props);
         this.selectFilter = this.selectFilter.bind(this);
+        this.removeFilter = this.removeFilter.bind(this);
+    }
+    removeFilter(e){
+        e.stopPropagation();
+        this.props.removeFilter(e.target.target);
     }
     selectFilter(e){
         this.props.selectFilter(e.target.target);
@@ -23,8 +28,15 @@ class Filters extends React.Component{
             }
         })
         Object.keys(categories).forEach( (key,i) => {
+            let filterClass = '';
+            filterClass = this.props.filters.includes(categories[i]) ? 'selected' : 'not';
             filterList.push(
-                <a key={i} target={categories[key]} onClick={this.selectFilter}>{categories[key]}</a>
+                <span key={i}>
+                    <a key={i} target={categories[key]} onClick={this.selectFilter} className={filterClass}>
+                        {categories[key]}
+                    </a>
+                    <a onClick={this.removeFilter} target={categories[key]} className="remove">x</a>
+                </span>
             )
         })
         return(

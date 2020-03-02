@@ -2,6 +2,7 @@
     import React from 'react';
     import ReactDOM from 'react-dom';
     import {BrowserRouter, Switch, Route, Link, Redirect} from 'react-router-dom';
+    import 'polyfill-array-includes';
     import styles from './style/style';
     const appRoot = document.getElementById('app');
 // -----------------------------------------------------------------------------
