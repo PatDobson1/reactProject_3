@@ -145,6 +145,9 @@
     }
     &.top .top{
         display: block;
+        span{
+            padding: 0 0 0 16px;
+        }
     }
     &.bottom .bottom{
         display: block;
@@ -162,10 +165,6 @@
         }
         .pages span{
             margin: 0 20px 0 0;
-        }
-        .itemsPerPage{
-            float: right;
-            margin: -20px 0 0 0;
         }
     }
 }

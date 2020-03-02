@@ -48,18 +48,12 @@ class Shop extends React.Component{
     addToBasket(id){
         this.props.addToBasket(id);
     }
-    paginationChange(target, type){
+    paginationChange(target){
         let itemsDisplayed = this.state.pagination.itemsDisplayed;
         let start = this.state.pagination.start;
         let currentPage = this.state.pagination.currentPage;
-        if( type === 'itemsPerPage' ){
-            itemsDisplayed = parseInt(target);
-            start = 1;
-            currentPage = 1;
-        }else if( type === 'page' ){
-            start = (target*itemsDisplayed)-itemsDisplayed;
-            currentPage = parseInt(target);
-        }
+        start = (target*itemsDisplayed)-itemsDisplayed;
+        currentPage = parseInt(target);
         this.setState({
             pagination: {
                 itemsDisplayed: itemsDisplayed,
@@ -106,7 +100,7 @@ class Shop extends React.Component{
                     <div className="shopItems">
                         {shopDisplay}
                     </div>
-                    {/*<Pagination pagination={this.state.pagination} totalItems={totalItems} position="bottom" paginationChange={this.paginationChange} />*/}
+                    <Pagination pagination={this.state.pagination} totalItems={totalItems} position="bottom" paginationChange={this.paginationChange} />
                 </div>
             </div>
         )
