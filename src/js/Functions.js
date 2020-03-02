@@ -59,7 +59,7 @@ const axios = require('axios').default;
         )
     }
 
-    const basket = (self, id) => {
+    const basket = (self, id,action) => {
 
         const basket = self.state.basket.basketItems;
         const quantities = self.state.basket.basketQuantity;
@@ -69,15 +69,27 @@ const axios = require('axios').default;
 
         let newBasket = basket;
         let newQuantity = quantities;
-        if( basket.indexOf(id) !== -1 ){
-            // -- Increment quantity if item already exists --
-                var index = basket.indexOf(id);
-                newQuantity[index] = newQuantity[index] + 1;
-                newBasket = basket;
-        }else{
-            // -- Add item if it doesn't already exist --
-                newBasket = basket.concat(id);
-                newQuantity = quantities.concat(1);
+
+        if( action === 'add' ){
+            if( basket.indexOf(id) !== -1 ){
+                // -- Increment quantity if item already exists --
+                    var index = basket.indexOf(id);
+                    newQuantity[index] = newQuantity[index] + 1;
+                    newBasket = basket;
+            }else{
+                // -- Add item if it doesn't already exist --
+                    newBasket = basket.concat(id);
+                    newQuantity = quantities.concat(1);
+            }
+        }else if( action === 'remove' ){
+            var index = basket.indexOf(id);
+            newQuantity[index] = newQuantity[index] - 1;
+            if( newQuantity[index] < 1 ){
+                newQuantity.splice(index,1);
+                newBasket.splice(index,1);
+            }else{
+                newBasket = basket;                
+            }
         }
         // -- Calculate to basket quantity --
             let basketQuantity =  newQuantity.reduce((a,b)=>a+b,0);

@@ -36,9 +36,13 @@ class App extends React.Component{
             }
         };
         this.addToBasket = this.addToBasket.bind(this);
+        this.removeFromBasket = this.removeFromBasket.bind(this);
+    }
+    removeFromBasket(id){
+        basket(this,id,'remove');
     }
     addToBasket(id){
-        basket(this, id);
+        basket(this, id,'add');
     }
     componentDidMount(){
         getFeaturedData(this);
@@ -51,7 +55,7 @@ class App extends React.Component{
                     <Route exact path="/" render={()=><Home state={this.state} />} />
                     <Route path="/shop" render={(props) => <Shop {...props} state={this.state} addToBasket={this.addToBasket} />} />
                     <Route path="/product/:id" render={(props) => <Product {...props} addToBasket={this.addToBasket} /> } />
-                    <Route path="/viewbasket" render={(props) => <ViewBasket {...props} state={this.state} /> } />
+                    <Route path="/viewbasket" render={(props) => <ViewBasket {...props} basket={this.state.basket} data={this.state.fullData} addToBasket={this.addToBasket} removeFromBasket={this.removeFromBasket} /> } />
                     <Route path="/about" component={About} />
                     <Route path="/contact" component={Contact} />
                     <Redirect to="/" />
