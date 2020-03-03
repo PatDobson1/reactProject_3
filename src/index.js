@@ -46,7 +46,9 @@ class App extends React.Component{
     }
     componentDidMount(){
         getFeaturedData(this);
+        window.scrollTo(0, 0);
     }
+
     render(){
         return(
             <div className="overall-content">

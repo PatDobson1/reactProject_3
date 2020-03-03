@@ -9,6 +9,7 @@ class Pagination extends React.Component{
     }
     paginationChange(e){
         this.props.paginationChange(e.target.target);
+        window.scrollTo(0,0);
     }
     render(){
         const pagination = this.props.pagination;

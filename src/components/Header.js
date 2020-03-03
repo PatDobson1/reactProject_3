@@ -13,6 +13,9 @@ class Header extends React.Component{
     constructor(props){
         super(props);
     }
+    mobileMenu(){
+        document.getElementById('menu').style.display = 'block';
+    }
     render(){
         return(
             <div className="header">
@@ -20,6 +23,7 @@ class Header extends React.Component{
                     <Logo />
                     <Menu />
                     <Basket basket={this.props.basket} />
+                    <a className="mobileMenu" onClick={this.mobileMenu}></a>
                 </div>
             </div>
         )

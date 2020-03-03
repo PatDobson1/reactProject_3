@@ -20,6 +20,7 @@ class Product extends React.Component{
     }
     componentDidMount(){
         getProduct(this, this.props.match.params.id);
+        window.scrollTo(0, 0);
     }
     render(){
         const product = this.state.productData;

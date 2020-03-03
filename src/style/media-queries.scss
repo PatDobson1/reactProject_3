@@ -1,0 +1,111 @@
+
+@media(max-width:768px){
+    .basket{
+        font-size: 0.9em;
+        top: 10px;
+        right: 0;
+    }
+    .header{
+        .menu{
+            display: none;
+            top: 0;
+            right: 0;
+            left:0;
+            z-index: 101;
+            background-color: $page_background;
+            a{
+                display: block;
+                margin: 30px 0;
+                text-align: center;
+                color: $main_background;
+                transition: all 0.1s ease-in;
+                &:hover{
+                    color: $text_colour;
+                }
+            }
+        }
+        .mobileMenu{
+            background-image: url('/menu.png');
+            display: block;
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            background-size: 30px;
+            background-repeat: no-repeat;
+            cursor: pointer;
+        }
+    }
+    .footer{
+        .footerContent{
+            p{
+                margin: 0;
+                text-align: center;
+            }
+            .menu{
+                top: 50px;
+                left: 0;
+                right: 0;
+                text-align: center;
+                a{
+                    display: block;
+                    margin: 0 0 10px 0;
+                    padding: 10px;
+                }
+            }
+        }
+    }
+    form{
+        width: 100%;
+        label{
+            display: block;
+        }
+        input, textarea{
+            width: 220px
+        }
+        input[type=submit]{
+            margin: 0;
+        }
+        textarea{
+            min-width: 220px;
+            max-width: 220px;
+        }
+        p{
+            &.required{
+                margin: 0 0 20px 0;
+            }
+            &#emailErrorNote{
+                margin: 0 0 20px 0;
+            }
+        }
+    }
+}
+
+@media(max-width:600px){
+    .product{
+        .info{
+            float: none;
+        }
+        .description{
+            margin: 20px 0;
+        }
+    }
+}
+
+@media(max-width:400px){
+    .featuredItems{
+        .featuredItem{
+            flex-basis: 300px;
+            a{
+                img{
+                    width: 50%;
+                }
+                .description{
+                    margin: 0 0 0 120px;
+                    height: 120px;
+                }
+            }
+        }
+    }
+}
