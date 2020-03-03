@@ -2,8 +2,6 @@
 
 This site is part three in series of React 'test' applications created to highlight React skills.
 
-## STILL BEING DEVELOPED ##
-
 This is a mock up of an ecommerce site including pagination and filtering on the shop page.
 
 The data is produced via a PHP API which takes it's data from a MySQL database and converts it into JSON.
