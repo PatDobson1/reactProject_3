@@ -8,7 +8,9 @@ class MenuItem extends React.Component{
         super(props);
     }
     menuClick(){
-        document.getElementById('menu').style.display = 'none';
+        if( window.innerWidth <= 768 ){
+            document.getElementById('menu').style.display = 'none';
+        }
     }
     render(){
         return(
