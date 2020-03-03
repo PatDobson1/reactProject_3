@@ -1,0 +1,72 @@
+
+    form{
+        font-size: 1.2em;
+        width: 520px;
+        margin: 0 auto;
+        label{
+            display: inline-block;
+            width: 150px;
+            vertical-align: top;
+            margin: 5px 0 0 0;
+        }
+        input, textarea{
+            padding: 5px 10px;
+            border: 1px solid lighten($main_background, 10%);
+            background-color: $white;
+            outline: none;
+            width: 300px;
+            font-size: 1em;
+            font-family: 'Maven Pro', sans-serif;
+            transition: all 0.1s ease-in-out;
+            &:focus, &:hover{
+                background-color: $page_background;
+            }
+            &[type=submit]{
+                margin: 0 0 0 150px;
+                width: 180px;
+                cursor: pointer;
+                &:hover{
+                    background-color: $page_background;
+                    color: $white;
+                }
+            }
+            + span{
+                background-color: #ff7b7b;
+                border-radius: 0 50% 50% 0;
+                padding: 0px 4px 0px 3px;
+                color: #ffffff;
+                vertical-align: top;
+                margin: 9px 0 0 0;
+                display: inline-block;
+                height: 17px;
+            }
+        }
+        textarea{
+            min-width: 300px;
+            max-width: 300px;
+            min-height: 200px;
+            height: 200px;
+        }
+        p.required{
+            margin: 0 0 20px 150px;
+            span{
+                border-radius: 50%;
+                background-color: #ff7b7b;
+                color: $white;
+                padding: 1px 4px 0 5px;
+                vertical-align: middle;
+                display: inline-block;
+                height: 19px;
+            }
+        }
+        #emailErrorNote{
+            color: $error_red;
+            margin: 0 0 20px 150px;
+        }
+    }
+    #emailError, #emailThankYou{
+        text-align: center;
+    }
+    #emailThankYou, #emailError, #emailErrorNote{
+        display: none;
+    }

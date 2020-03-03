@@ -88,7 +88,7 @@ const axios = require('axios').default;
                 newQuantity.splice(index,1);
                 newBasket.splice(index,1);
             }else{
-                newBasket = basket;                
+                newBasket = basket;
             }
         }
         // -- Calculate to basket quantity --
@@ -111,6 +111,40 @@ const axios = require('axios').default;
 
     }
 
+    const sendMail = (formContents) => {
+        const formData = [{
+            contactName: formContents.contactName,
+            contactEmail: formContents.contactEmail,
+            contactTel: formContents.contactTel,
+            message: formContents.message
+        }];
+        let sendEmail = false;
+        if( formContents.contactName !== '' && formContents.contactEmail !== '' && formContents.message !== '' ){
+            sendEmail = true;
+        }else{
+            document.getElementById('emailErrorNote').style.display = 'block';
+        }
+        if(sendEmail){
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function(){
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById('contactForm').style.display = 'none';
+                    document.getElementById('emailThankYou').style.display = 'block';
+                }
+                if(xmlhttp.readyState == 4 && xmlhttp.status == 405){
+                    document.getElementById('contactForm').style.display = 'none';
+                    document.getElementById('emailError').style.display = 'block';
+                }
+                if(xmlhttp.readyState == 4 && xmlhttp.status == 404){
+                    document.getElementById('contactForm').style.display = 'none';
+                    document.getElementById('emailError').style.display = 'block';
+                }
+            }
+            xmlhttp.open('POST', 'sendMail.php');
+            xmlhttp.send(JSON.stringify(formData));
+        }
+    }
+
 // -----------------------------------------------------------------------------
 
-export { getFeaturedData, getFullData, getProduct, basket };
+export { getFeaturedData, getFullData, getProduct, basket, sendMail };
